@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import random
 
 def main(request):
-    return render(request, 'ushqim/main.html')
+    return render(request, 'restaurant/main.html')
 
 def order(request):
     daily_specials = [
@@ -16,7 +16,7 @@ def order(request):
         'daily_special': daily_special,
     }
 
-    return render(request, 'ushqim/order.html', context)
+    return render(request, 'restaurant/order.html', context)
 
 def confirmation(request):
     if request.method == 'POST':
@@ -55,6 +55,6 @@ def confirmation(request):
             'total': total,
             'ready_time': ready_time.strftime("%I:%M %p"),
         }
-        return render(request, 'ushqim/confirmation.html', context)
+        return render(request, 'restaurant/confirmation.html', context)
 
-    return redirect('ushqim:order')
+    return redirect('restaurant:order')
